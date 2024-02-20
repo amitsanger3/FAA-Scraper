@@ -27,7 +27,7 @@ from logs import *
 gdelt_data_logger = Logger(job="Faa_Mysql")
 
 
-local_machine_ip = '47.31.215.216'
+local_machine_ip = '192.168.1.0'
 
 
 class FaaDatabase(object):
@@ -42,7 +42,7 @@ class FaaDatabase(object):
                 logger object
         """
         # self.machine_ip = requests.get('http://ipinfo.io/json').json()['ip']
-        self.machine_ip = '46.101.206.152'
+        self.machine_ip = local_machine_ip
         self.connection = self.db_connection()
         self.cursor = self.connection.cursor(buffered=True)
         self.logger = logger
@@ -61,8 +61,8 @@ class FaaDatabase(object):
             'host': '127.0.0.1',
             'port': '3306',
             'user': 'root',
-            'passwd': 'saway9m1D2301AsghaR1987',
-            'database': 'fbuzzgdelt'
+            'passwd': '', # your password
+            'database': '' # your database
         }
         return conf
 
